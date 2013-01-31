@@ -1,0 +1,29 @@
+{
+	"name": "Neopets+",
+	"version": "1.0.0.1",
+	"description": "Ohai. (Made by !!EAUEYgt9Ugn)",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "Automated Neopets",
+		"popup": "popup.html"
+	},
+	"permissions":[
+		"webRequest",
+		"webRequestBlocking",
+		"unlimitedStorage",
+		"notifications",
+		"http://neopets.com/",
+		"http://*.neopets.com/"
+	],
+	"background":{
+		"scripts": ["js/background.js"]
+	},
+	"content_scripts":[
+		{
+			"matches": ["http://neopets.com/*", "http://*.neopets.com/*"],
+			"js": ["js/jquery.min.js", "js/jquery.fancybox-1.3.4.pack.js", "js/main.js", "js/underscore-min.js"],
+			"css": ["css/neo.css", "css/jquery.fancybox-1.3.4.css"],
+			"run_at": "document_end"
+		}
+	]
+}
